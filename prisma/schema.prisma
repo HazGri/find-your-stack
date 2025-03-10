@@ -14,12 +14,14 @@ datasource db {
 }
 
 model User {
-  id          String   @id @default(uuid())
-  email       String   @unique
-  name        String?
-  createdAt   DateTime @default(now())
-  savedStacks SavedStack[]
+  id          String       @id @default(uuid())  
+  email       String       @unique              
+  password    String       
+  name        String?      
+  createdAt   DateTime     @default(now())       
+  savedStacks SavedStack[] // Relation avec le modèle SavedStack
 }
+
 
 model SavedStack {
   id        String   @id @default(uuid())

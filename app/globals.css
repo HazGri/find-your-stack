@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @plugin "tailwindcss-animate";
-
+@plugin "daisyui";
 @custom-variant dark (&:is(.dark *));
 
 @theme inline {
@@ -123,4 +123,12 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+body {
+  background-color: #f5f5f7;
+}
+
+html {
+  height: 100%;
 }

@@ -18,8 +18,15 @@ export default async function handler(req, res) {
       messages: [
         {
           role: "system",
-          content:
-            "Tu es un assistant qui génère des stacks technologiques adaptées aux projets. Fournis une stack front-end, back-end et base de données adaptées au projet décrit",
+          content: `
+          Tu es un assistant qui génère des stacks technologiques adaptées aux projets (réponds en français ou en anglais selon la langue utilisé par le prompt de l'utilisateur). 
+          Pour chaque partie de la stack (front-end, back-end, base de données), 
+          fournis une stack technologique avec une alternative pour chaque choix, et explique pourquoi cette alternative pourrait être une bonne option.
+          Assure-toi de fournir une explication pour chaque section de la stack ainsi qu'une alternative avec son explication :
+          - Front-end (framework, gestion d'état, etc.)
+          - Back-end (framework, services, etc.)
+          - Base de données (type, choix de base, etc.)
+        `,
         },
         {
           role: "user",
@@ -30,7 +37,6 @@ export default async function handler(req, res) {
     });
 
     const stack = completion.choices[0].message.content;
-    console.log(stack)
     res.status(200).json({ stack });
   } catch (error) {
     console.error(error);
