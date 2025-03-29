@@ -2,11 +2,11 @@
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { HeroInput } from "@/myComponents/heroInput"; 
-import { SignupForm } from "@/myComponents/signForm";
+import { HeroInput } from "@/myComponents/HeroInput"; 
+import { SignupForm } from "@/myComponents/SignForm";
 import { motion } from "framer-motion";
 import { Header } from "@/myComponents/Header";
-import { LoginForm } from "@/myComponents/loginForm";
+import { LoginForm } from "@/myComponents/LoginForm";
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
