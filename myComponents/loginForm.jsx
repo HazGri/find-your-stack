@@ -6,8 +6,9 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { LoginButton } from "@/authComponents/LoginButton";
+import SignInButton from "@/authComponents/SignInButton";
 
-export function LoginForm({closeModal}) {
+export function LoginForm({ closeModal }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
   };
@@ -21,19 +22,24 @@ export function LoginForm({closeModal}) {
         Log in to FindYourStack to save your stacks and more
       </p>
       <form className="my-8" onSubmit={handleSubmit}>
-        <LabelInputContainer className="mb-4">
+        {/* <LabelInputContainer className="mb-4">
           <Label htmlFor="email">Email Address</Label>
           <Input id="email" placeholder="johnDoe@gmail.com" type="email" />
         </LabelInputContainer>
         <LabelInputContainer className="mb-4">
           <Label htmlFor="password">Password</Label>
           <Input id="password" placeholder="••••••••" type="password" />
-        </LabelInputContainer>
-    <LoginButton/>
+        </LabelInputContainer> */}
+        {/* <LoginButton/> */}
         <div className="bg-gradient-to-r from-transparent via-neutral-300 dark:via-neutral-700 to-transparent my-8 h-[1px] w-full" />
-
         <div className="flex flex-col space-y-4">
-          <Button className="cursor-pointer" variant="secondary" onClick={closeModal}>
+          <SignInButton provider={"github"} name={"GitHub"} />
+          <SignInButton provider={"google"} name={"Google"} />
+          <Button
+            className="cursor-pointer"
+            variant="secondary"
+            onClick={closeModal}
+          >
             Close
           </Button>
         </div>

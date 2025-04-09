@@ -9,7 +9,6 @@ const SignInButton = ({ provider, name }) => {
       await signIn(provider, { redirectTo: "/dashboard" });
     } catch (error) {
       console.error(`Erreur lors de la connexion ${provider}`, error);
-      // Affiche un message d'erreur à l'utilisateur si nécessaire
     }
   };
   return (
