@@ -2,8 +2,8 @@
 
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { HeroInput } from "@/myComponents/HeroInput"; 
 import { motion } from "framer-motion";
+import { HeroInput } from "@/app/myComponents/HeroInput";
 
 
 
