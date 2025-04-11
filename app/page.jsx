@@ -3,31 +3,18 @@
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
 import { HeroInput } from "@/myComponents/HeroInput"; 
-import { SignupForm } from "@/myComponents/SignForm";
 import { motion } from "framer-motion";
-import { Header } from "@/myComponents/Header";
-import { LoginForm } from "@/myComponents/LoginForm";
+
+
 
 export default function Home() {
   const [prompt, setPrompt] = useState("");
   const [loading, setLoading] = useState(false);
   const [stack, setStack] = useState(null);
   const [error, setError] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
 
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-  const openLoginModal = () => {
-    setIsLoginModalOpen(true);
-  };
-  const closeLoginModal = () => {
-    setIsLoginModalOpen(false);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -57,42 +44,14 @@ export default function Home() {
 
   return (
     <div className="flex flex-col px-2">
-      <Header onClick={openLoginModal}/>
-      {isLoginModalOpen ? (
-        <motion.div
-          className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-opacity-50 z-50"
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          exit={{ opacity: 0 }} 
-          transition={{ duration: 0.3 }}
-        >
-          <LoginForm closeModal={closeLoginModal}/>
-        </motion.div>
-      ) : null}
+     
       <HeroInput
         onChange={handleChange} 
         onSubmit={handleSubmit} 
       />
-          <button
-            onClick={openModal}
-            className="cursor-pointer self-center px-4 w-fit py-2 rounded-md border border-black bg-white text-black text-sm hover:shadow-[4px_4px_0px_0px_rgba(0,0,0)] transition duration-200"
-          >
-            Sign up to save your stack
-          </button>
-
+    
       {loading ? (
         <p className="loading self-center loading-spinner loading-xl"></p>
-      ) : null}
-      {isModalOpen ? (
-        <motion.div
-          className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-opacity-50 z-50"
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          exit={{ opacity: 0 }} 
-          transition={{ duration: 0.3 }}
-        >
-          <SignupForm closeModal={closeModal} />
-        </motion.div>
       ) : null}
 
       {stack && (
