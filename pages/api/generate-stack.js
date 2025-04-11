@@ -2,7 +2,9 @@ import { stackSchema } from "@/schémas/stack-schema";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
 
-const openai = new OpenAI();
+const openai = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY, // Utilisation de la variable d'environnement
+});
 
 export default async function handler(req, res) {
   if (req.method !== "POST") {
