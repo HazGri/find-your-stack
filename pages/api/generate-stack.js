@@ -1,9 +1,12 @@
 import { stackSchema } from "@/schémas/stack-schema";
 import OpenAI from "openai";
 import { zodResponseFormat } from "openai/helpers/zod";
+export const config = {
+  maxDuration: 25, // secondes - max autorisé par Vercel est 30
+};
 
 const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY, // Utilisation de la variable d'environnement
+  apiKey: process.env.OPENAI_API_KEY,
 });
 
 export default async function handler(req, res) {
